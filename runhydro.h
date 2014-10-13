@@ -1,9 +1,12 @@
-       integer, parameter :: numr = 130
-       integer, parameter :: numz = 130
+       integer, parameter :: numr = 162
+       integer, parameter :: numz = 98
        integer, parameter :: numphi = 256!512
-       integer, parameter :: oldnumr = 128!258
+       integer, parameter :: oldnumr = 130!258 
+       double precision, parameter :: deltar_parameter = 2.0
+       double precision, parameter :: reallyadrag = 1.0e-2 !% of AM removed/orbit
+       double precision, parameter :: dragtime = 1.6 !number of orbits
 
-       integer, parameter :: numr_procs = 16
+       integer, parameter :: numr_procs = 8
        integer, parameter :: numz_procs = 8
 
        integer, parameter :: numr_dd = ( (numr - 2)/numr_procs ) + 2

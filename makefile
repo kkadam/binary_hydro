@@ -1,3 +1,11 @@
+#Use mpif90 located at /usr/local/packages/mvapich/1.1/intel-10.1/bin/mpif90
+#i.e. mvapich 1.1 compiled with Intel compiler version 10.1 
+#by adding following to .soft file:
+#+intel-fc-10.1
+#+mvapich-1.1-intel-10.1
+#Otherwise THE CODE WILL RUN BUT STARS WILL DANCE IN  NON-PHYSIXIE WAY!
+
+
 .SUFFIXES: .F90 .f .c .o
 
 F90FILES= main.F90 advect_frac.F90 advect_bc.F90 slope.F90 flux.F90 flux_frac.F90 source.F90 source_bc.F90 \

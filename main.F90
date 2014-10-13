@@ -341,7 +341,8 @@ endif
 ! Set the ammount of drag of angular momentum per timestep
 ! with drag_factor = 0.01 the system will lose 1% of its 
 ! angular momentum per orbit
-drag_factor = 1.0e-2
+drag_factor = reallyadrag!1.0e-2
+!0.0 means No driving right now!
 
 !TIMING 
 time1 = mpi_wtime()
@@ -411,7 +412,7 @@ do tstep = tstart, tstop          ! Start timestep loop
 
    dt = 2.0*dt
 
-   if ( time / cirp >= 1.6 ) then
+   if ( time / cirp >= dragtime ) then
       drag_factor = 0.0
    endif
 

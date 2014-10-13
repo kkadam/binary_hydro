@@ -253,8 +253,8 @@ record_length = 0
 init_int = 0
 init_real = 0.0
 
-!conts_template = 'input/conts/fort.12.1180000.'
-conts_template = 'input/conts/fort.12.'
+conts_template = 'input/conts/fort.12.215000.'
+!conts_template = 'input/conts/fort.12.'
 
 !  Have root read the fort.7 file into arrays and then broadcast
 !  those arrays to all other pe's
@@ -331,7 +331,7 @@ endif
 ! >>>NOTE<<< the - 3 part comes from getting agreement from scf
 !            code and hydrocode.  if numr  = 128 in the scf code
 !            that translates to numr = 130 in the hydrocode
-dr = 1.0 / (oldnumr - 3.0)
+dr = 1.0 / (oldnumr - deltar_parameter)
 dz = dr
 dphi = 2.0 * pi * numphiinv
 drinv = 1.0 / dr
@@ -609,8 +609,8 @@ else if(  model_type == 1 )  then
     close(8)
    
    if( iam_root ) then
-     !open(unit=9, file='input/conts/fort.13.1180000', &
-     open(unit=9, file='input/conts/fort.13', &
+     open(unit=9, file='input/conts/fort.13.215000', &
+     !open(unit=9, file='input/conts/fort.13', &
            form='unformatted', status='old')
       read(9) time, frnum, phi_com, R_com, com, v_com, a_com, cylin_a_com,  &
               cylin_v_com, delt
