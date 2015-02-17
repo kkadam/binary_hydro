@@ -21,16 +21,18 @@ setup_frac.F90 initialize_frac.F90 ritecont_frac.F90 scfin_frac.F90 debugin.F90 
 OFILES= $(F90FILES:.F90=.o) 
 
 hydro:$(OFILES)
-	mpif90 -O3 -o hydro -v $(OFILES)
+#	mpif90 -O0 -o hydro -v $(OFILES)
 #	cmpif90c -O3 -o hydro $(OFILES)
+	mpif90 -O0 -r8 -o hydro $(OFILES)
 
 $(OFILES): runhydro.h
 
 .F90.o: runhydro.h
 
 # normal compilation after SP networkupgrade, don't use -qhot and -qipa
-	mpif90 -c -O3 -r8 -v $<
+#	mpif90 -c -O0 -r8 -v $<
 #	cmpif90c -c -O3 -r8 $<
+	mpif90 -c -O0 -r8 $<
 
 clean:
 	/bin/rm -f *.o *.il hydro F*.f

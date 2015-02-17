@@ -49,7 +49,7 @@ call output_kernel(frac1, record_number, 51 )
 call output_kernel(frac2, record_number, 52 )
 
 call output_kernel(tau, record_number, 53 )
-
+!call output_kernel(p, record_number, 53 )    !This prints pressure instead of tau
 call output_kernel(pot, record_number, 54 )
 
 call output_kernel(u, record_number, 55 )
